@@ -1,14 +1,70 @@
-<div class="jumbotron">
+<div class="container-fluid">
   <h1 class="display-4" style="text-align: center">Create Pdf just in seconds!</h1>
 
   <hr class="my-4">
 
+  <div class="row">
+    <div style="text-align: center" class="col-lg-6 col-md-6 col-sm-12">
+      <div id="document">
+        <table id="tab_customers" class="table table-striped">
+          <colgroup>
+            <col width="20%">
+            <col width="20%">
+            <col width="20%">
+            <col width="20%">
+          </colgroup>
+          <thead>
+          <tr class='warning'>
+            <th>Country</th>
+            <th>Population</th>
+            <th>Date</th>
+            <th>Age</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Chinna</td>
+            <td>1,363,480,000</td>
+            <td>March 24, 2014</td>
+            <td>19.1</td>
+          </tr>
+          <tr>
+            <td>India</td>
+            <td>1,241,900,000</td>
+            <td>March 24, 2014</td>
+            <td>17.4</td>
+          </tr>
+          <tr>
+            <td>United States</td>
+            <td>317,746,000</td>
+            <td>March 24, 2014</td>
+            <td>4.44</td>
+          </tr>
+          <tr>
+            <td>Indonesia</td>
+            <td>249,866,000</td>
+            <td>July 1, 2013</td>
+            <td>3.49</td>
+          </tr>
+          <tr>
+            <td>Brazil</td>
+            <td>201,032,714</td>
+            <td>July 1, 2013</td>
+            <td>2.81</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
 
-  <hr class="my-4">
+      <hr class="my-4">
 
-  <div style="text-align: center">
-    <button type="button" class="btn btn-primary" (click)="generatePdf()">PDF</button>
-    <button type="button" class="btn btn-primary" (click)="printPdf()">Print</button>
+      <button type="button" class="btn btn-primary" (click)="previewPdf()">Preview PDF</button>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <iframe class="resp-iframe" #iframe type="application/pdf" src=""></iframe>
+    </div>
+
   </div>
 
 </div>
