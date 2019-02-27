@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HeaderModule} from './feature/header/header.module';
+import {TopMenuModule} from './feature/top-menu/top-menu.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import {HeaderModule} from './feature/header/header.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HeaderModule,
+    TopMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

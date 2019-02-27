@@ -5,60 +5,55 @@
 
   <div class="row">
     <div style="text-align: center" class="col-lg-6 col-md-6 col-sm-12">
-      <div id="document">
-        <table id="tab_customers" class="table table-striped">
-          <colgroup>
-            <col width="20%">
-            <col width="20%">
-            <col width="20%">
-            <col width="20%">
-          </colgroup>
-          <thead>
-          <tr class='warning'>
-            <th>Country</th>
-            <th>Population</th>
-            <th>Date</th>
-            <th>Age</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>Chinna</td>
-            <td>1,363,480,000</td>
-            <td>March 24, 2014</td>
-            <td>19.1</td>
-          </tr>
-          <tr>
-            <td>India</td>
-            <td>1,241,900,000</td>
-            <td>March 24, 2014</td>
-            <td>17.4</td>
-          </tr>
-          <tr>
-            <td>United States</td>
-            <td>317,746,000</td>
-            <td>March 24, 2014</td>
-            <td>4.44</td>
-          </tr>
-          <tr>
-            <td>Indonesia</td>
-            <td>249,866,000</td>
-            <td>July 1, 2013</td>
-            <td>3.49</td>
-          </tr>
-          <tr>
-            <td>Brazil</td>
-            <td>201,032,714</td>
-            <td>July 1, 2013</td>
-            <td>2.81</td>
-          </tr>
-          </tbody>
-        </table>
+
+      <div class="row">
+        <div class="col-12">
+
+          <div class="form-group">
+            <img *ngIf="imageSrc" [src]="imageSrc" width="120px" height="120px" (click)="image.click()" style="cursor: pointer">
+            <img *ngIf="!imageSrc" src="../../../assets/app/images/Placeholder.jpg" width="120px" height="120px" (click)="image.click()" style="cursor: pointer">
+            <input hidden #image (change)="readURL($event);" type="file" tabindex="1">
+          </div>
+        </div>
       </div>
 
       <hr class="my-4">
 
-      <button type="button" class="btn btn-primary" (click)="previewPdf()">Preview PDF</button>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="cv-title" class="control-label">Document Title</label>
+            <input required class="form-control" id="cv-title" placeholder="Main title" [(ngModel)]="PDFDocument.title" maxlength="255" type="text" tabindex="2">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="cv-name" class="control-label">Name</label>
+            <input required class="form-control" id="cv-name" placeholder="Your Name" [(ngModel)]="PDFDocument.name" maxlength="50" type="text" tabindex="3">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="flyer-description">Description</label>
+        <textarea class="form-control" id="flyer-description" placeholder="Insert a short description taking care of the available space">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, nihil officia neque ad expedita consequatur quae! Voluptate, incidunt, earum, sit, eveniet harum ratione expedita quibusdam possimus sed laboriosam dolore ut recusandae eos. Ipsa,natus pariatur iste dolorum optio nostrum consectetur!</textarea>
+      </div>
+
+      <hr>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <button id="flyer_preview_btn" type="button" class="btn btn-primary btn-block" tabindex="9" (click)="previewPdf()">Update preview</button>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group text-right">
+            <button id="flyer_download_btn" type="button" class="btn btn-primary btn-block" tabindex="10">Download</button>
+          </div>
+        </div>
+      </div>
+
+
     </div>
 
     <div class="col-lg-6 col-md-6 col-sm-12">
