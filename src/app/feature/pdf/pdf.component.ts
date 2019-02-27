@@ -1,12 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import * as jsPDF from 'jspdf';
-
-export class PDFDocument {
-  title: string;
-  name: string;
-  body: string;
-  footer: string;
-}
+import {PdfHelper} from '../helper/pdf.helper';
+import {PdfService} from '../service/pdf.service';
 
 @Component({
   selector: 'app-home',
@@ -17,34 +12,44 @@ export class PdfComponent implements OnInit {
 
   @ViewChild('iframe', {read: ElementRef}) iframe: ElementRef;
 
-  imageSrc: any;
-  PDFDocument: PDFDocument = new PDFDocument();
-
-  constructor() {
+  constructor(public service: PdfService) {
   }
 
   ngOnInit() {
+    const pdf = PdfHelper.getUsersDocumentData();
+    if (pdf) {
+      this.service.pdfdocument = pdf;
+    }
   }
 
+
   private initPdf(): jsPDF {
-    const document = this.PDFDocument;
+    const document = this.service.pdfdocument;
     const pdf = new jsPDF();
 
     pdf.setProperties({
       title: document.title ? document.title : 'Document'
     });
 
-    // NAME
+    if (this.service.imageSrc) {
+      pdf.addImage(this.service.imageSrc, 'JPEG', 170, 15, 20, 20);
+    }
 
-    pdf.setFontSize(11);
-    pdf.setFont('calibri');
+    pdf.setFont('helvetica');
+    pdf.setFontSize(16);
     pdf.setFontType('bold');
     pdf.text(document.name, 105, 20, 'center');
 
-    // if (this.imageSrc) {
-    //   pdf.addImage(this.imageSrc, 'JPEG', 5, 5, 40, 40);
-    // }
+    PdfHelper.setNormalFontSizeAndType(pdf, 'normal');
+    pdf.text('Location: ' + document.location, 105, 30, 'center');
+    pdf.text('Mobile: ' + document.mobile + ' Email: ' + document.email, 105, 35, 'center');
 
+    PdfHelper.setParagraphFontSizeAndType(pdf, 'bold');
+    pdf.text('PROFESSIONAL SUMMARY', 25, 45, 'left');
+
+    PdfHelper.setNormalFontSizeAndType(pdf, 'normal');
+    const splitProfSummary = pdf.splitTextToSize(document.profSummary, 160);
+    pdf.text(splitProfSummary, 25, 55, 'left');
 
     return pdf;
 
@@ -52,16 +57,12 @@ export class PdfComponent implements OnInit {
 
   previewPdf() {
     const pdf = this.initPdf();
+    PdfHelper.setUsersDocumentData(this.service.pdfdocument);
     this.iframe.nativeElement.setAttribute('src', pdf.output('datauristring'));
   }
 
-  readURL(event: any): void {
-    if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrc = reader.result;
-      reader.readAsDataURL(file);
-    }
+  downloadPdf() {
+    const pdf = this.initPdf();
+    pdf.save(this.service.pdfdocument.title);
   }
-
 }

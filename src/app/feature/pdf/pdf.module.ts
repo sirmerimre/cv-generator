@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {PdfRoutingModule} from './pdf-routing.module';
 import {PdfComponent} from './pdf.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {PdfGeneralModule} from './general/pdf-general.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     PdfRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    PdfGeneralModule,
   ]
 })
 export class PdfModule {

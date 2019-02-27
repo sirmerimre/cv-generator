@@ -4,6 +4,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TopMenuModule} from './feature/top-menu/top-menu.module';
+import {PdfService} from './feature/service/pdf.service';
 
 @NgModule({
   declarations: [
@@ -15,8 +16,12 @@ import {TopMenuModule} from './feature/top-menu/top-menu.module';
     BrowserAnimationsModule,
     TopMenuModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    PdfService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule {
 }

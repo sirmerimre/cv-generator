@@ -1,45 +1,46 @@
 <div class="container-fluid">
-  <h1 class="display-4" style="text-align: center">Create Pdf just in seconds!</h1>
+  <h1 class="display-4" style="text-align: center">Create Your Professional CV in a minutes</h1>
 
   <hr class="my-4">
+
+  <!--TABLINKS-->
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="home" aria-selected="true">General</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="profile" aria-selected="false">Skills</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="work-exp-tab" data-toggle="tab" href="#work" role="tab" aria-controls="contact" aria-selected="false">Work Experience</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="contact" aria-selected="false">Education</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="bobbies-tab" data-toggle="tab" href="#hobbies" role="tab" aria-controls="contact" aria-selected="false">Hobbies</a>
+    </li>
+  </ul>
 
   <div class="row">
     <div style="text-align: center" class="col-lg-6 col-md-6 col-sm-12">
 
-      <div class="row">
-        <div class="col-12">
+      <div class="tab-content" id="myTabContent">
 
-          <div class="form-group">
-            <img *ngIf="imageSrc" [src]="imageSrc" width="120px" height="120px" (click)="image.click()" style="cursor: pointer">
-            <img *ngIf="!imageSrc" src="../../../assets/app/images/Placeholder.jpg" width="120px" height="120px" (click)="image.click()" style="cursor: pointer">
-            <input hidden #image (change)="readURL($event);" type="file" tabindex="1">
-          </div>
+        <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab" style="min-height: 700px">
+         <app-pdf-general></app-pdf-general>
         </div>
-      </div>
 
-      <hr class="my-4">
+        <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab" style="min-height: 700px">SKILLS</div>
+        <div class="tab-pane fade" id="work" role="tabpanel" aria-labelledby="work-exp-tab" style="min-height: 700px">WORK EXPERIENCE</div>
+        <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab" style="min-height: 700px">EDUCATION</div>
+        <div class="tab-pane fade" id="hobbies" role="tabpanel" aria-labelledby="hobbies-tab" style="min-height: 700px">Hobbies</div>
 
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="cv-title" class="control-label">Document Title</label>
-            <input required class="form-control" id="cv-title" placeholder="Main title" [(ngModel)]="PDFDocument.title" maxlength="255" type="text" tabindex="2">
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="cv-name" class="control-label">Name</label>
-            <input required class="form-control" id="cv-name" placeholder="Your Name" [(ngModel)]="PDFDocument.name" maxlength="50" type="text" tabindex="3">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="control-label" for="flyer-description">Description</label>
-        <textarea class="form-control" id="flyer-description" placeholder="Insert a short description taking care of the available space">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, nihil officia neque ad expedita consequatur quae! Voluptate, incidunt, earum, sit, eveniet harum ratione expedita quibusdam possimus sed laboriosam dolore ut recusandae eos. Ipsa,natus pariatur iste dolorum optio nostrum consectetur!</textarea>
       </div>
 
       <hr>
+
+      <!--BUTTONS-->
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
@@ -48,16 +49,16 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group text-right">
-            <button id="flyer_download_btn" type="button" class="btn btn-primary btn-block" tabindex="10">Download</button>
+            <button id="flyer_download_btn" type="button" class="btn btn-primary btn-block" tabindex="10" (click)="downloadPdf()">Download</button>
           </div>
         </div>
       </div>
 
-
     </div>
 
+    <!--PDF VIEW-->
     <div class="col-lg-6 col-md-6 col-sm-12">
-      <iframe class="resp-iframe" #iframe type="application/pdf" src=""></iframe>
+      <iframe class="resp-iframe" #iframe type="application/pdf" src="" style="max-height: 800px"></iframe>
     </div>
 
   </div>
