@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import * as jsPDF from 'jspdf';
 import {PdfHelper} from '../helper/pdf.helper';
 import {PdfService} from '../service/pdf.service';
+import {PDFDocument} from './model/pdf-document';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,8 @@ export class PdfComponent implements OnInit {
     const pdf = PdfHelper.getUsersDocumentData();
     if (pdf) {
       this.service.pdfdocument = pdf;
+    } else {
+      this.service.pdfdocument = new PDFDocument();
     }
   }
 
@@ -30,10 +33,6 @@ export class PdfComponent implements OnInit {
     pdf.setProperties({
       title: document.title ? document.title : 'Document'
     });
-
-    if (this.service.imageSrc) {
-      pdf.addImage(this.service.imageSrc, 'JPEG', 170, 15, 20, 20);
-    }
 
     pdf.setFont('helvetica');
     pdf.setFontSize(16);
