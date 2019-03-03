@@ -3,12 +3,12 @@ import {PdfRoutingModule} from '../pdf-routing.module';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {PdfGeneralComponent} from './pdf-general.component';
+import {PdfSkillsComponent} from './pdf-skills.component';
 import {RemainingCharactersModule} from '../../remaining-characters/remaining-characters.module';
 
 @NgModule({
   declarations: [
-    PdfGeneralComponent,
+    PdfSkillsComponent,
   ],
   imports: [
     CommonModule,
@@ -19,8 +19,8 @@ import {RemainingCharactersModule} from '../../remaining-characters/remaining-ch
     RemainingCharactersModule,
   ],
   exports: [
-    PdfGeneralComponent,
+    PdfSkillsComponent,
   ]
 })
-export class PdfGeneralModule {
+export class PdfSkillsModule {
 }

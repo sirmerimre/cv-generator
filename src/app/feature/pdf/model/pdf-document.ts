@@ -1,10 +1,15 @@
 export class PDFDocument {
-  title: string;
-  name: string;
-  location: string;
-  mobile: string;
-  email: string;
-  profSummary: string;
-  body: string;
-  footer: string;
+  title = '';
+  name = '';
+  location = '';
+  mobile = '';
+  email = '';
+  profSummary = '';
+  skills = '';
+  skillsTable: Skills[] = [];
+}
+
+export class Skills {
+  skillName: string;
+  skillDefinition: string;
 }

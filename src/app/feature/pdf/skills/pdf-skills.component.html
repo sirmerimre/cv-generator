@@ -1,0 +1,44 @@
+<hr class="my-4">
+
+<div class="form-group">
+  <label class="control-label" for="cv-skills" style="font-weight: bold">Key skills and achivements</label>
+  <div style="float: right">
+    <app-remaining-characters
+      [textToCheck]="service.pdfdocument.skills"
+      [maxLength]="700">
+    </app-remaining-characters>
+  </div>
+  <textarea class="form-control" maxlength="700" rows="10" id="cv-skills" placeholder="Insert a short summary of your achievements"
+            [(ngModel)]="service.pdfdocument.skills"></textarea>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-sm" id="basic-table">
+    <thead>
+    <tr>
+      <th width="45%">Name</th>
+      <th width="50%">Definition</th>
+      <th width="5%">Del</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of service?.pdfdocument?.skillsTable; let i=index;">
+      <td align="left">
+        <textarea maxlength="150" class="form-control" [(ngModel)]="row.skillDefinition" style="width: 100%; border: 1px solid white"></textarea>
+      </td>
+      <td align="left">
+        <textarea maxlength="200" class="form-control" [(ngModel)]="row.skillName" style="width: 100%; border: 1px solid white"></textarea>
+      </td>
+      <td align="right">
+        <button type="button" class="btn btn-danger btn-sm" (click)="removeRowFromSkills(i)"><i class="fa fa-trash"></i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <div class="col-sm-12 container-fluid">
+    <button type="button" class="btn btn-success btn-block" (click)="addRowToSkills()">Add Row</button>
+  </div>
+</div>
+

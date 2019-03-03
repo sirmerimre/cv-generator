@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TopMenuModule} from './feature/top-menu/top-menu.module';
 import {PdfService} from './feature/service/pdf.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,8 @@ import {PdfService} from './feature/service/pdf.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     TopMenuModule,

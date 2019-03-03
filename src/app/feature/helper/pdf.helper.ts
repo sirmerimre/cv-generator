@@ -20,8 +20,9 @@ export class PdfHelper {
     pdf.setFontType(type);
   }
 
-  static setNormalFontSizeAndType(pdf: any, type:  'normal' | 'bold') {
+  static setNormalFontSizeAndType(pdf: any, type: 'normal' | 'bold') {
     pdf.setFontSize(11);
     pdf.setFontType(type);
   }
+
 }

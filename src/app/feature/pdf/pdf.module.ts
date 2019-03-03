@@ -3,8 +3,8 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {PdfRoutingModule} from './pdf-routing.module';
 import {PdfComponent} from './pdf.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PdfGeneralModule} from './general/pdf-general.module';
+import {PdfSkillsModule} from './skills/pdf-skills.module';
 
 @NgModule({
   declarations: [
@@ -14,9 +14,8 @@ import {PdfGeneralModule} from './general/pdf-general.module';
     CommonModule,
     RouterModule,
     PdfRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
     PdfGeneralModule,
+    PdfSkillsModule,
   ]
 })
 export class PdfModule {
