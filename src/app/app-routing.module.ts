@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {HomeComponent} from './feature/home/home.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'pdf', pathMatch: 'full'},
+  {path: '', component: HomeComponent},
   {path: 'pdf', loadChildren: './feature/pdf/pdf.module#PdfModule'},
 ];
 

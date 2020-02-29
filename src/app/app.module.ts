@@ -6,10 +6,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TopMenuModule} from './feature/top-menu/top-menu.module';
 import {PdfService} from './feature/service/pdf.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HomeComponent } from './feature/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,47 +1,48 @@
-<hr class="my-4">
-
 <div class="row">
-  <div class="col-sm-6">
-    <div class="form-group">
-      <label for="cv-title" class="control-label" style="font-weight: bold">Document Title (download name)</label>
-      <input required class="form-control" id="cv-title" placeholder="main title" [(ngModel)]="service.pdfdocument.title" maxlength="255" type="text" tabindex="2">
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="form-group">
-      <label for="cv-name" class="control-label" style="font-weight: bold">Name</label>
-      <input required class="form-control" id="cv-name" placeholder="your name" [(ngModel)]="service.pdfdocument.name" maxlength="50" type="text" tabindex="3">
+  <div class="col-sm-12" style="text-align: -webkit-center">
+    <div class="form-group" style="width: 300px">
+      <label for="cv-title" class="control-label">Document Title (download name)</label>
+      <input required class="form-control" id="cv-title" placeholder="Untitled" [(ngModel)]="service.pdfdocument.title" maxlength="255" type="text" tabindex="2">
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <div class="form-group">
-      <label for="cv-mobile" class="control-label" style="font-weight: bold">Mobile</label>
+      <label for="cv-name" class="control-label">First Name</label>
+      <input required class="form-control" id="cv-name" [(ngModel)]="service.pdfdocument.firstName" maxlength="50" type="text" tabindex="3">
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="cv-last-name" class="control-label">Last Name</label>
+      <input required class="form-control" id="cv-last-name" [(ngModel)]="service.pdfdocument.lastName" maxlength="50" type="text" tabindex="3">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="cv-mobile" class="control-label">Mobile</label>
       <input required class="form-control" id="cv-mobile" placeholder="add phone" [(ngModel)]="service.pdfdocument.mobile" maxlength="100" type="text" tabindex="2">
     </div>
   </div>
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <div class="form-group">
-      <label for="cv-location" class="control-label" style="font-weight: bold">Location</label>
-      <input required class="form-control" id="cv-location" placeholder="add address" [(ngModel)]="service.pdfdocument.location" maxlength="255" type="text" tabindex="2">
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="form-group">
-      <label for="cv-email" class="control-label" style="font-weight: bold">Email</label>
+      <label for="cv-email" class="control-label">Email</label>
       <input required class="form-control" id="cv-email" placeholder="enter your email" [(ngModel)]="service.pdfdocument.email" maxlength="50" type="email" tabindex="3">
     </div>
   </div>
 </div>
 
 <div class="form-group">
-  <label class="control-label" for="cv-profSummary" style="font-weight: bold">Professional Summary</label>
+  <label class="control-label" for="cv-profSummary">Professional Summary</label>
   <div style="float: right">
-    <app-remaining-characters [textToCheck]="service.pdfdocument.profSummary" [maxLength]="700"></app-remaining-characters>
+    <app-remaining-characters [textToCheck]="service.pdfdocument.profSummary" [maxLength]="professionalSummaryMaxCharacters"></app-remaining-characters>
   </div>
-  <textarea class="form-control" maxlength="700" rows="10" id="cv-profSummary" placeholder="Insert a short summary of your profession"
+  <textarea class="form-control" maxlength="{{professionalSummaryMaxCharacters}}" rows="10" id="cv-profSummary" placeholder="Insert a short summary of your profession"
             [(ngModel)]="service.pdfdocument.profSummary">
   </textarea>
 </div>

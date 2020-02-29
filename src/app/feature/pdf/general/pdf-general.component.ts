@@ -7,6 +7,8 @@ import {PdfService} from '../../service/pdf.service';
 })
 export class PdfGeneralComponent {
 
+  professionalSummaryMaxCharacters = 700;
+
   constructor(public  service: PdfService) {
   }
 

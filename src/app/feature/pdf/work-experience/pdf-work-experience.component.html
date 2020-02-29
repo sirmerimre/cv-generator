@@ -1,0 +1,60 @@
+<div class="row" style="text-align: left; padding: 5px">
+  <div class="col-sm-12">
+    <button type="button" class="btn btn-primary btn-sm" (click)="addExperience()">Add work Experience</button>
+  </div>
+</div>
+
+<ng-container *ngFor="let exp of service.pdfdocument.workExperience; let i=index">
+  <div style="border: 1px solid rgba(118,118,118,0.46); margin-top: 15px; border-radius: 30px; padding: 5px">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group" style="margin-top: 32px">
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"
+                   name="dp" [(ngModel)]="exp.date" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="cv-role" class="control-label">Role</label>
+          <input required class="form-control" id="cv-role" placeholder="Your role" [(ngModel)]="exp.role" maxlength="50" type="text" tabindex="3">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="cv-company-name" class="control-label">Company Name</label>
+          <input required class="form-control" placement="top" ngbTooltip="The company you worked for" id="cv-company-name" [(ngModel)]="exp.companyName" maxlength="50" type="text"
+                 tabindex="3">
+        </div>
+      </div>
+      <div class="col-sm-1">
+        <button type="button" placement="bottom" ngbTooltip="Delete whole section" style="margin-top: 35px" class="btn btn-danger btn-sm" (click)="removeRowFromWorkExperience(i)">
+          <i class="fa fa-trash"></i></button>
+      </div>
+    </div>
+
+    <div class="row" style="text-align: left; padding: 5px">
+      <div class="col-sm-12">
+        <button style="text-align: left" type="button" class="btn btn-primary btn-sm" (click)="addDescription(exp.description)">Add some description</button>
+      </div>
+    </div>
+    <div class="row" *ngFor="let desc of exp.description; let d=index">
+      <div class="col-sm-12">
+        <div class="input-group mb-3">
+          <input class="form-control" required placeholder="Add some description" [(ngModel)]="desc.value" maxlength="250" type="text" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button type="button" placement="bottom" ngbTooltip="Delete description" class="btn btn-danger btn-sm fa fa-trash"
+                    (click)="removeDescription(exp.description, d)">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ng-container>
+

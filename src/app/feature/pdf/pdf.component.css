@@ -5,3 +5,20 @@
   height: 200%;
   border: solid 1px black;
 }
+
+:host /deep/ input {
+  background: aliceblue;
+  color: black;
+}
+
+:host /deep/ textarea {
+  background: aliceblue;
+  color: black;
+}
+
+:host /deep/ .form-group {
+  text-align: -webkit-left;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.5)
+}
+
