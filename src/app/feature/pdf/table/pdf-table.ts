@@ -20,7 +20,7 @@ export class PdfTable {
         theme: 'grid',
         head: [['Skill Name', 'Skill Definition']],
         headStyles: {halign: 'left', fillColor: '#ced4da', textColor: '#000000'},
-        bodyStyles: {halign: 'left', cellWidth: 10},
+        bodyStyles: {halign: 'left', cellWidth: 70},
         startY: 140,
         body: body
       });

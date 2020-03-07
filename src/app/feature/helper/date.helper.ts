@@ -5,6 +5,8 @@ export class DateHelper {
   ];
 
   public static formatDate(dateObject: { year: number, month: number, day: number }): string {
-    return DateHelper.MONTH_NAMES[(dateObject.month - 1 )] + ' ' + dateObject.year;
+    if (dateObject) {
+      return DateHelper.MONTH_NAMES[(dateObject.month - 1)] + ' ' + dateObject.year;
+    }
   }
 }

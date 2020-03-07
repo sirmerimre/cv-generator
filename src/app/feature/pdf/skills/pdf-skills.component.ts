@@ -11,11 +11,11 @@ export class PdfSkillsComponent {
   }
 
   addRowToSkills() {
-    this.service.pdfdocument.skillsTable.push({skillName: '', skillDefinition: ''});
+    this.service.pdfDocument.skillsTable.push({skillName: '', skillDefinition: ''});
   }
 
   removeRowFromSkills(index: number) {
-    this.service.pdfdocument.skillsTable.splice(index, 1);
+    this.service.pdfDocument.skillsTable.splice(index, 1);
   }
 
 }

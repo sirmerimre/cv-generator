@@ -16,8 +16,15 @@ export class Skills {
 }
 
 export class WorkExperience {
-  date: { year: number, month: number, day: number };
+  startDate: { year: number, month: number, day: number };
+  endDate: { year: number, month: number, day: number };
   role: string;
   companyName: string;
-  description = [{value: ''}];
+  description: string;
+}
+
+export interface IChangePageSubject {
+  value?: number;
+  reset?: boolean;
+  addUp?: boolean;
 }

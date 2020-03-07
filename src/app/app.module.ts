@@ -6,12 +6,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TopMenuModule} from './feature/top-menu/top-menu.module';
 import {PdfService} from './feature/service/pdf.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HomeComponent } from './feature/home/home.component';
+import {HomeModule} from './feature/home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,6 +19,7 @@ import { HomeComponent } from './feature/home/home.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     TopMenuModule,
+    HomeModule
   ],
   providers: [
     PdfService

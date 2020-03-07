@@ -4,6 +4,6 @@ import {PDFDocument} from '../pdf/model/pdf-document';
 @Injectable()
 export class PdfService {
 
-  pdfdocument: PDFDocument;
+  pdfDocument: PDFDocument;
 
 }

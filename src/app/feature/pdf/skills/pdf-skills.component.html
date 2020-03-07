@@ -4,12 +4,12 @@
   <label class="control-label" for="cv-skills">Key skills and achivements</label>
   <div style="float: right">
     <app-remaining-characters
-      [textToCheck]="service.pdfdocument.skills"
+      [textToCheck]="service.pdfDocument.skills"
       [maxLength]="200">
     </app-remaining-characters>
   </div>
   <textarea class="form-control" maxlength="200" rows="4" id="cv-skills" placeholder="Insert a short summary of your achievements"
-            [(ngModel)]="service.pdfdocument.skills"></textarea>
+            [(ngModel)]="service.pdfDocument.skills"></textarea>
 </div>
 
 <div class="table-responsive">
@@ -22,7 +22,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let row of service?.pdfdocument?.skillsTable; let i=index;" style="background-color: aliceblue">
+    <tr *ngFor="let row of service?.pdfDocument?.skillsTable; let i=index;" style="background-color: aliceblue">
       <td align="left">
         <textarea maxlength="150" class="form-control" [(ngModel)]="row.skillDefinition" style="width: 100%; border: 1px solid white"></textarea>
       </td>

@@ -7,23 +7,24 @@ import {WorkExperience} from '../model/pdf-document';
   templateUrl: 'pdf-work-experience.component.html',
 })
 export class PdfWorkExperienceComponent {
+  workExperienceSummaryMaxCharacters = 300;
 
   constructor(public service: PdfService) {
   }
 
   addExperience() {
-    this.service.pdfdocument.workExperience.push(new WorkExperience());
+    this.service.pdfDocument.workExperience.push(new WorkExperience());
   }
 
   removeRowFromWorkExperience(index: number) {
-    this.service.pdfdocument.workExperience.splice(index, 1);
+    this.service.pdfDocument.workExperience.splice(index, 1);
   }
 
   addDescription(description: any[]) {
     description.push({value: ''});
   }
 
-  removeDescription(description: string[], index: number) {
+  removeDescription(description: { value: string }[], index: number) {
     description.splice(index, 1);
   }
 
