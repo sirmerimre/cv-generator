@@ -4,7 +4,7 @@ import {HomeComponent} from './feature/home/home.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'pdf', loadChildren: './feature/pdf/pdf.module#PdfModule'},
+  {path: 'pdf', loadChildren: () => import('./feature/pdf/pdf.module').then(m => m.PdfModule)},
 ];
 
 @NgModule({

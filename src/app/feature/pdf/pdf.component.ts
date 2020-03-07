@@ -38,7 +38,7 @@ export class PdfComponent implements OnInit {
       title: document.title ? document.title : 'Document',
     });
 
-    console.log(pdf.internal.pageSize.getHeight());
+    // console.log(pdf.internal.pageSize.getHeight());
 
     // GENERAL
     pdf.setFont('helvetica');
